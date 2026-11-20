@@ -65,17 +65,10 @@ Aplikasi web pembelajaran berbasis video dengan backend Laravel dan frontend Rea
 
 ## Cara Menjalankan
 
-Jalankan server backend dan frontend development server pada terminal terpisah:
-
-- **Backend Laravel**
+- **Run 2 server**
 
     ```bash
-    php artisan serve
-    ```
-
-- **Frontend Vite / React**
-    ```bash
-    npm run dev
+    composer run dev
     ```
 
 ## Akun Demo
@@ -86,3 +79,10 @@ Jika data seeder sudah dijalankan (atau disesuaikan dengan seeder/akun yang ters
 | :---------- | :-------------------- | :--------- |
 | **Admin**   | `admin@example.com`   | `password` |
 | **Student** | `student@example.com` | `password` |
+
+## Batasan
+
+- **Pengelolaan Course**: Hanya role `admin` yang memiliki akses untuk membuat, mengubah, menghapus kursus dan pelajaran, serta mengunggah file video.
+- **Akses Siswa**: Role `student` hanya memiliki akses baca (read-only) untuk melihat daftar kursus yang berstatus terbit (`published`) dan memutar video pelajaran yang sudah siap (`ready`).
+- **Akses Akun**: Sistem menggunakan akun yang sudah terdaftar pada database (autentikasi berbasis login untuk membedakan hak akses `admin` dan `student`).
+- **Penyimpanan Media**: File video dan gambar sampul (thumbnail) kursus dikelola dan disimpan langsung pada penyimpanan lokal server aplikasi.
